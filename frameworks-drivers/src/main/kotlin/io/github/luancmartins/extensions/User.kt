@@ -1,6 +1,6 @@
 package io.github.luancmartins.extensions
 
-import io.github.luancmartins.DTOs.user.UserResponse
+import io.github.luancmartins.dtos.user.UserResponse
 import io.github.luancmartins.repository.user.entity.UserEntity
 import io.github.luancmartins.user.User
 

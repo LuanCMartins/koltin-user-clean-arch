@@ -10,6 +10,6 @@ import jakarta.persistence.Table
 class UserEntity(
     @Id @GeneratedValue
     val id: Long = 0,
-    val nome: String,
-    val email: String
+    val nome: String = "no-name",
+    val email: String = "no-email"
 )

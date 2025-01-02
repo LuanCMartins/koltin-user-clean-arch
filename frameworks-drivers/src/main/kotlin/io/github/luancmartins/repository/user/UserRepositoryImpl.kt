@@ -1,5 +1,6 @@
 package io.github.luancmartins.repository.user
 
+import io.github.luancmartins.extensions.toModel
 import io.github.luancmartins.user.User
 import io.github.luancmartins.user.contracts.UserGateway
 import org.springframework.stereotype.Repository
@@ -15,5 +16,10 @@ class UserRepositoryImpl(private val userDAO: UserDAO): UserGateway {
             entity.get().nome,
             entity.get().email
         )
+    }
+
+    override fun findAll(): List<User> {
+        val entities = userDAO.findAll()
+        return entities.map { it.toModel() }
     }
 }
