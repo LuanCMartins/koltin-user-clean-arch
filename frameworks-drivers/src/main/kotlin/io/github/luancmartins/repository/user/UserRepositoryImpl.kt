@@ -1,5 +1,6 @@
 package io.github.luancmartins.repository.user
 
+import io.github.luancmartins.extensions.toEntity
 import io.github.luancmartins.extensions.toModel
 import io.github.luancmartins.user.User
 import io.github.luancmartins.user.contracts.UserGateway
@@ -21,5 +22,10 @@ class UserRepositoryImpl(private val userDAO: UserDAO): UserGateway {
     override fun findAll(): List<User> {
         val entities = userDAO.findAll()
         return entities.map { it.toModel() }
+    }
+
+    override fun save(user: User): User? {
+        val entity = user.toEntity()
+        return userDAO.save(entity).toModel()
     }
 }

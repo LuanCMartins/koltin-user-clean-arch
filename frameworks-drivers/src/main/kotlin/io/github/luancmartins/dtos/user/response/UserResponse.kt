@@ -1,4 +1,4 @@
-package io.github.luancmartins.dtos.user
+package io.github.luancmartins.dtos.user.response
 
 data class UserResponse(
     val id: Long? = 0,

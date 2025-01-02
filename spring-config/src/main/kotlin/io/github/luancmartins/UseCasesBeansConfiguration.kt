@@ -3,6 +3,7 @@ package io.github.luancmartins
 import io.github.luancmartins.user.contracts.UserGateway
 import io.github.luancmartins.user.usecases.GetAllUsers
 import io.github.luancmartins.user.usecases.GetUserById
+import io.github.luancmartins.user.usecases.RegisterUser
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -16,5 +17,10 @@ class UseCasesBeansConfiguration {
     @Bean
     fun getAllUsers(userRepo: UserGateway): GetAllUsers {
         return GetAllUsers(userRepo)
+    }
+
+    @Bean
+    fun registerUser(userRepo: UserGateway): RegisterUser {
+        return RegisterUser(userRepo)
     }
 }
