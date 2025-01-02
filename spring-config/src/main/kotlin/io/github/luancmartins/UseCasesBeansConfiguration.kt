@@ -1,6 +1,7 @@
 package io.github.luancmartins
 
 import io.github.luancmartins.user.contracts.UserGateway
+import io.github.luancmartins.user.usecases.DeleteUser
 import io.github.luancmartins.user.usecases.GetAllUsers
 import io.github.luancmartins.user.usecases.GetUserById
 import io.github.luancmartins.user.usecases.RegisterUser
@@ -22,5 +23,10 @@ class UseCasesBeansConfiguration {
     @Bean
     fun registerUser(userRepo: UserGateway): RegisterUser {
         return RegisterUser(userRepo)
+    }
+
+    @Bean
+    fun deleteUser(userRepo: UserGateway): DeleteUser {
+        return DeleteUser(userRepo)
     }
 }

@@ -6,6 +6,7 @@ import io.github.luancmartins.repository.user.entity.UserEntity
 import io.github.luancmartins.user.User
 import io.github.luancmartins.user.contracts.UserGateway
 import jakarta.persistence.EntityManager
+import jakarta.persistence.NoResultException
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -19,6 +20,7 @@ class UserRepositoryImpl(
             return null
         return User(
             entity.get().id,
+            entity.get().active,
             entity.get().name,
             entity.get().email
         )
@@ -28,7 +30,13 @@ class UserRepositoryImpl(
         val query = manager.createQuery("FROM ${UserEntity::class.simpleName} WHERE email = :email",
             UserEntity::class.java)
         query.setParameter("email", email)
-        return query.singleResult.toModel()
+        val entity: UserEntity
+        try {
+            entity = query.singleResult
+        } catch (noResult: NoResultException) {
+            return null
+        }
+        return entity.toModel()
     }
 
     override fun findAll(): List<User> {

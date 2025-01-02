@@ -4,6 +4,7 @@ import io.github.luancmartins.dtos.user.request.RegisterUserRequest
 import io.github.luancmartins.dtos.user.response.UserResponse
 import io.github.luancmartins.service.UserService
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -28,5 +29,10 @@ class UserController(private val userService: UserService) {
     @PostMapping
     fun register(@RequestBody request: RegisterUserRequest): ResponseEntity<UserResponse> {
         return userService.register(request)
+    }
+
+    @DeleteMapping
+    fun deleteUser(@RequestParam("user-id") userId: Long): ResponseEntity<String> {
+        return userService.deleteById(userId)
     }
 }
