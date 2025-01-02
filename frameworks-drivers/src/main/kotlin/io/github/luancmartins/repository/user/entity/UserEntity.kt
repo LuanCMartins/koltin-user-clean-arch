@@ -8,6 +8,7 @@ import jakarta.persistence.*
 class UserEntity(
     @Id @GeneratedValue(strategy = GenerationType.AUTO, generator = "users_seq")
     val id: Long? = null,
-    val nome: String = "no-name",
-    val email: String = "no-email"
+    val active: Boolean = true,
+    val name: String = "no-name",
+    val email: String = "no-email",
 )

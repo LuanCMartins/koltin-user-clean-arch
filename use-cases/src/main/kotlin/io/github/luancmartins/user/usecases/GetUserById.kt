@@ -8,7 +8,7 @@ import io.github.luancmartins.user.usecase.GetUserByIdUseCase
 class GetUserById(private val userRepo: UserGateway): GetUserByIdUseCase {
 
     override fun execute(id: Long): User {
-        val user = userRepo.findById(id) ?:throw RegisterNotFoundException("Usuário com id $id não encontrado")
+        val user = userRepo.findById(id) ?:throw RegisterNotFoundException("User with id $id not found")
         return user
     }
 }

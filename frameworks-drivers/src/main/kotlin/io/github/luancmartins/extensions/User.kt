@@ -6,13 +6,13 @@ import io.github.luancmartins.repository.user.entity.UserEntity
 import io.github.luancmartins.user.User
 
 fun UserEntity.toModel(): User =
-    User(this.id, this.nome, this.email)
+    User(this.id, this.active, this.name, this.email)
 
 fun User.toResponse(): UserResponse =
-    UserResponse(this.id, this.nome, this.email)
+    UserResponse(this.id, this.active, this.name, this.email)
 
 fun User.toEntity(): UserEntity =
-    UserEntity(this.id, this.nome, this.email)
+    UserEntity(this.id, this.active, this.name, this.email)
 
 fun RegisterUserRequest.toModel(): User =
-    User(null, this.nome, this.email)
+    User(null, true, this.name, this.email)
