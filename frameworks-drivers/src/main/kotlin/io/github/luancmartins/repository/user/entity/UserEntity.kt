@@ -1,4 +1,4 @@
-package io.github.luancmartins.entity
+package io.github.luancmartins.repository.user.entity
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -9,7 +9,7 @@ import jakarta.persistence.Table
 @Table(name = "users")
 class UserEntity(
     @Id @GeneratedValue
-    val id: Int = 0,
+    val id: Long = 0,
     val nome: String,
     val email: String
 )

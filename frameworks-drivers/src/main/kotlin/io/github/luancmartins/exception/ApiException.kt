@@ -1,4 +1,4 @@
-package io.github.luancmartins.exceptionHandler
+package io.github.luancmartins.exception
 
 import org.springframework.http.HttpStatus
 import java.time.LocalDateTime

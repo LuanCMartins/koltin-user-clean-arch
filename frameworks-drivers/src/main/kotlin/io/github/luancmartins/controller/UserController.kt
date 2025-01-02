@@ -1,5 +1,6 @@
 package io.github.luancmartins.controller
 
+import io.github.luancmartins.DTOs.user.UserResponse
 import io.github.luancmartins.service.UserService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(private val userService: UserService) {
 
     @GetMapping
-    fun getById(@RequestParam("user-id") userId: Long): ResponseEntity<String> {
+    fun getById(@RequestParam("user-id") userId: Long): ResponseEntity<UserResponse> {
         return userService.getById(userId)
     }
 }

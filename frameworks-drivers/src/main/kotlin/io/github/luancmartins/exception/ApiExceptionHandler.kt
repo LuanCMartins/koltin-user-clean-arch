@@ -1,9 +1,5 @@
-package io.github.luancmartins.exceptionHandler
+package io.github.luancmartins.exception
 
-import io.github.luancmartins.exception.DuplicatedRegisterException
-import io.github.luancmartins.exception.RegisterNotFoundException
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
