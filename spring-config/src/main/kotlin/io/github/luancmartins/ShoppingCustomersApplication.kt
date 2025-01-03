@@ -8,8 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = ["io.github.luancmartins.repository"])
 @ComponentScan(basePackages = ["io.github.luancmartins"])
-class ShoppingCustomersApplication
-
-fun main(args: Array<String>) {
-    runApplication<ShoppingCustomersApplication>(*args)
+class ShoppingCustomersApplication {
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            runApplication<ShoppingCustomersApplication>(*args)
+        }
+    }
 }
